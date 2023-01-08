@@ -6,6 +6,52 @@ import styles from './App.module.css';
 
 import './global.css';
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/mithrasdeLuca-dev.png',
+      name: 'Mithras de Luca',
+      role: 'Web Developer FullStack'
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
+      { type: 'link', content: 'jane.design/doctorcare' },
+    ],
+    publishedAt: new Date('2023-01-02 20:00:00'),
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://github.com/maykbrito.png',
+      name: 'Mayk Brito',
+      role: 'Educador @Rocketseat'
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
+      { type: 'link', content: 'jane.design/doctorcare' },
+    ],
+    publishedAt: new Date('2023-01-02 20:00:00'),
+  },
+  {
+    id: 3,
+    author: {
+      avatarUrl: 'https://github.com/diego3g.png',
+      name: 'Diego Fernandes',
+      role: 'CTO @Rocketseat'
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
+      { type: 'link', content: 'jane.design/doctorcare' },
+    ],
+    publishedAt: new Date('2023-01-02 20:00:00'),
+
+  },
+]
+
 export function App() {
   return (
     <div>
@@ -16,18 +62,17 @@ export function App() {
         <Sidebar />
 
         <main>
-          <Post
-            author="José"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur perferendis blanditiis porro facilis nobis commodi. Voluptate aliquid, accusantium ducimus, dolorum, adipisci eveniet necessitatibus quidem ipsa sed ex aspernatur cum incidunt!"
-          />
-          <Post
-            author="Maria"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, sequi nesciunt! Expedita quia rem, doloribus debitis fuga ea similique asperiores animi illum temporibus, fugiat minima distinctio, doloremque at? Quas, quaerat."
-          />
-          <Post
-            author="Rocketseat"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit minus assumenda aspernatur, optio cumque distinctio excepturi quo soluta labore debitis tenetur esse? Unde dolores neque sint velit odio quod ipsa."
-          />
+          {posts.map(post => {
+            return (
+              <Post
+                key={post.id}
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+
+              />
+            )
+          })}
         </main>
       </div>
     </div>
