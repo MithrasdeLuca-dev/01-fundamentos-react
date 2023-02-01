@@ -26,9 +26,7 @@ export function Post({ author, publishedAt, content }) {
   function handCreateNewComment() {
     event.preventDefault()
 
-    const setCommentsText = event.target.comment.value
-
-    setComments([...comments, setCommentsText]);
+    setComments([...comments, newCommentText]);
     setNewCommentText('')
   }
 
